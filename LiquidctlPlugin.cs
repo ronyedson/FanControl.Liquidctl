@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FanControl.Plugins;
 
@@ -12,7 +13,6 @@ namespace FanControl.Liquidctl
 
         public void Initialize()
         {
-
             LiquidctlCLIWrapper.Initialize();
         }
 
@@ -22,6 +22,21 @@ namespace FanControl.Liquidctl
             foreach (LiquidctlStatusJSON liquidctl in input)
             {
                 LiquidctlDevice device = new LiquidctlDevice(liquidctl);
+                if (device.hasFan1)
+                {
+                    _container.FanSensors.Add(device.Fan1.Speed);
+                    _container.ControlSensors.Add(device.Fan1.Duty);
+                }
+                if (device.hasFan2)
+                {
+                    _container.FanSensors.Add(device.Fan2.Speed);
+                    _container.ControlSensors.Add(device.Fan2.Duty);
+                }
+                if (device.hasFan3)
+                {
+                    _container.FanSensors.Add(device.Fan3.Speed);
+                    _container.ControlSensors.Add(device.Fan3.Duty);
+                }
                 if (device.hasPumpSpeed)
                     _container.FanSensors.Add(device.pumpSpeed);
                 if (device.hasPumpDuty)

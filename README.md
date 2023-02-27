@@ -1,8 +1,8 @@
 # FanControl.Liquidctl
 
-This is a fork of [jmarucha](https://github.com/jmarucha/FanControl.Liquidctl)'s original. It stops liquidctl from starting and stopping all the time by using a custom made [fork](https://github.com/SuspiciousActivity/liquidctl) that has an interactive mode. Works for my machine (Kraken X63) but not tested for anything else at all, **use at your own risk**. This applies to the liquidctl repo as well.
+This is a fork of [SuspiciousActivity](https://github.com/SuspiciousActivity/FanControl.Liquidctl)'s original. It aims to add ability to control fans attached to a [NZXT RGB & Fan Controller](https://nzxt.com/product/rgb-and-fan-controller).
 
-This is a simple plugin that uses [liquidctl](https://github.com/liquidctl/liquidctl) to provide sensor data and pump control to variety of AIOs. So far it is tested with NZXT Kraken X63, but in principle shall work with [supported devices](https://github.com/liquidctl/liquidctl#supported-devices)
+This is a simple plugin that uses [SuspiciousActivity](https://github.com/SuspiciousActivity/FanControl.Liquidctl)'s custom [liquidctl](https://github.com/SuspiciousActivity/liquidctl) to provide sensor data and pump control to variety of AIOs. I've only tested on my computer with only the NZXT controller so it may or may not has issues with other devices on your computer so use it at your onw risk.
 
 ## Installation
 
@@ -14,8 +14,8 @@ The project, after being imported to Visual Studio needs to have it reference to
 
 ## Screenshots
 
-![Fluid temperature sensor](/docs/images/FluidTemp.png)
-![Pump speed and control](/docs/images/PumpControl.png)
+![Fan speed sensor](/docs/images/FanSpeeds.png)
+![Fan controls](/docs/images/FanControls.png)
 
 ## License
 MIT license, because it's superior.

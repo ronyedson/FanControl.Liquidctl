@@ -38,6 +38,17 @@ namespace FanControl.Liquidctl
             throw new Exception((string)result.SelectToken("data"));
         }
 
+        internal static void SetFanSpeed(string address, int fanNumber, int value)
+        {
+            Process process = GetLiquidCtlBackend(address);
+            process.StandardInput.WriteLine($"set fan{fanNumber} speed {value}");
+            JObject result = JObject.Parse(process.StandardOutput.ReadLine());
+            string status = (string)result.SelectToken("status");
+            if (status == "success")
+                return;
+            throw new Exception((string)result.SelectToken("data"));
+        }
+
         private static Process GetLiquidCtlBackend(string address) {
             Process process = liquidctlBackends.ContainsKey(address) ? liquidctlBackends[address] : null;
             if (process != null && !process.HasExited) {
